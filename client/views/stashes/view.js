@@ -72,6 +72,12 @@ Template.stashesView.events({
 	'click a.stash-import': function(e) {
 		e.preventDefault();
 
+		// If the user isn't logged in, display an error and don't import
+		if(!Meteor.user()) {
+			showAlert('Please create an account and sign in to start using stashes!', 'error');
+			return false;
+		}
+
 		if(confirm('Import this stash?')) {
 			// Create a copy of the stash, and assign the copy
 			// to the current user
