@@ -8,7 +8,7 @@ Download/clone this repository, run *mrt update* to download the required packag
 
 ## Demo
 
-From time to time I will upload the current version to [flashcards2.meteor.com](flashcards2.meteor.com).
+From time to time I will upload the current version to [flashcards2.meteor.com](http://flashcards2.meteor.com).
 
 ## Questions? Need help?
 
