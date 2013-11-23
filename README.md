@@ -4,7 +4,7 @@ A simple flashcard application built with the awesome [Meteor framework](https:/
 
 ## Installation
 
-Download/clone this repository, run *mrt update* to download the required packages and then start the application by running *meteor*.
+Download/clone this repository, run *mrt update* to download the required packages and then start the application by running *meteor*. Or simply run *mrt* and Meteorite will automatically download the required packages and start Meteor!
 
 ## Questions? Need help?
 
