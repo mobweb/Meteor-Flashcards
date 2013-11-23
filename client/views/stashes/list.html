@@ -1,0 +1,46 @@
+<template name="stashesList">
+	<div class="page-header">
+		{{#if userStashesOnly}}
+			<h1>My Stashes</h1>
+			<span class="clearfix"></span>
+			<div class="header-item">
+				<a href="{{stashesAddPath}}" class="btn btn-default">
+					<i class="icon-plus"></i>
+					Add Stash
+				</a>
+			</div>
+		{{else}}
+			<h1>All Stashes</h1>
+			<span class="clearfix"></span>
+		{{/if}}
+		<div class="header-item left first">
+			<form class="form-inline">
+				<select class="sort">
+					<option value="submittedDESC" selected>Sort by: Newest First</option>
+					<option value="submittedASC">Sort by: Oldest First</option>
+					<option value="nameASC">Sort by: Name A-Z</option>
+					<option value="nameDESC">Sort by: Name Z-A</option>
+				</select>
+			</form>
+		</div>
+		<div class="header-item left">
+			<form class="form-search">
+				<div class="input-prepend">
+					<button type="submit" class="btn"><i class="icon-search"></i></button>
+					<input type="text" class="search-query" placeholder="Type to filter...">
+				</div>
+			</form>
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	{{> stashesListList}}
+</template>
+
+<!-- See comment atop Template.stashesListList.helpers about why this template is separated! -->
+<template name="stashesListList">
+	<div class="row-fluid stashes">
+		{{#each stashes}}
+			{{> stashesListItem}}
+		{{/each}}
+	</div>
+</template>

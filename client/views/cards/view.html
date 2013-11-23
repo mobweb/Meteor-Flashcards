@@ -1,0 +1,25 @@
+<template name="cardsView">
+	{{#with currentCard}}
+		<div class="page-header">
+			<h1>Card Details</h1>
+			<div class="header-item">
+				<a href="{{stashesViewPath currentStash}}" class="btn btn-default cancel">Back to Stash</a>
+			</div>
+			<span class="clearfix"></span>
+		</div>
+		<form name="card" class="card-form form-inline">
+			<fieldset>
+				<div class="control-group">
+					<div class="controls">
+						<textarea id="question" placeholder="Enter Question..." rows="8" class="span12">{{question}}</textarea>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<textarea id="answer" placeholder="Enter Answer..." rows="8" class="span12">{{answer}}</textarea>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	{{/with}}
+</template>

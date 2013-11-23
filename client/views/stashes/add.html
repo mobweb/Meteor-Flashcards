@@ -1,0 +1,27 @@
+<template name="stashesAdd">
+	<div class="page-header">
+		<h1>Create a new stash</h1>
+		<div class="header-item">
+			<a href="{{userStashesListPath}}" class="btn btn-default cancel">Cancel</a>
+		</div>
+	</div>
+	<form name="stash" class="stash-form form-horizontal">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label" for="name">Stash Name:</label>
+				<div class="controls">
+					<input type="text" name="name" placeholder="" value="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="description">Stash Description:</label>
+				<div class="controls">
+					<textarea name="description" placeholder=""></textarea>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-success">Create Stash</button>
+			</div>
+		</fieldset>
+	</form>
+</template>

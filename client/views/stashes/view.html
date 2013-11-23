@@ -1,0 +1,70 @@
+<template name="stashesView">
+	{{#with currentStash}}
+		<div class="stash-view {{#if ownsStash}}stash-own{{/if}}">
+			<div class="page-header">
+				<h1>{{name}}</h1>
+				<div class="header-item left">
+					<a href="{{stashesEditPath this}}" class="btn btn-default stash-edit">
+						<i class="icon-pencil"></i>
+						Edit
+					</a>
+				</div>
+				<div class="header-item left">
+					<a href="#" class="btn btn-danger stash-delete">
+						<i class="icon-trash icon-white"></i>
+						Delete
+					</a>
+				</div>
+				<div class="header-item">
+					<a href="#" class="btn stash-cancel">
+						Cancel
+					</a>
+				</div>
+				<span class="clearfix"></span>
+				<div class="header-item">
+					<a href="{{cardsQuestioningPath this}}" class="btn btn-success stash-questioning">
+						<i class="icon-question-sign icon-white"></i>
+						Start Questioning: Random
+					</a>
+				</div>
+				<div class="header-item">
+					<a href="{{cardsQuestioningSortedPath this}}" class="btn btn-success stash-questioning">
+						<i class="icon-question-sign icon-white"></i>
+						Start Questioning: Sorted
+					</a>
+				</div>
+				<div class="header-item left first">
+					<a href="{{cardsAddPath this}}" class="btn btn-default stash-add-card">
+						<i class="icon-plus"></i>
+						Add Cards
+					</a>
+				</div>
+				<div class="header-item stash-import left first">
+					<a href="#" class="btn btn-default stash-import">
+						<i class="icon-arrow-down"></i>
+						Add to My Stashes
+					</a>
+				</div>
+				<div class="header-item left">
+					<form class="form-search">
+						<div class="input-prepend">
+							<button type="submit" class="btn"><i class="icon-search"></i></button>
+							<input type="text" class="search-query" placeholder="Filter Cards...">
+						</div>
+					</form>
+				</div>
+				<span class="clearfix"></span>
+			</div>
+		</div>
+		{{> stashesViewCardsList}}
+	{{/with}}
+</template>
+
+<!-- See comment atop Template.stashesViewCardsList.helpers about why this template is separated! -->
+<template name="stashesViewCardsList">
+	<div class="row-fluid cards">
+		{{#each cards}}
+			{{> cardsListItem}}
+		{{/each}}
+	</div>
+</template>

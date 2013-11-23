@@ -1,0 +1,8 @@
+<template name="stashesListItem">
+	<div class="span3 box-item box-item-single stash">
+		<a href="{{stashesViewPath this}}">
+			<span class="visible-default">{{name}}</span>
+			<span class="visible-revealed">{{cardsCount this}} cards by {{authorUserName this}}.<br />{{description}}</span>
+		</a>
+	</div>
+</template>

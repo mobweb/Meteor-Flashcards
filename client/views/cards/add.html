@@ -1,0 +1,26 @@
+<template name="cardsAdd">
+	<div class="page-header">
+		<h1>Add Card to Stash {{currentStashName currentCard}}</h1>
+		<div class="header-item">
+			<a href="{{stashesViewPath currentStash}}" class="btn btn-default cancel">Cancel</a>
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<form name="card" class="card-form form-inline">
+		<fieldset>
+			<div class="control-group">
+				<div class="controls">
+					<textarea id="question" placeholder="Enter Question..." rows="8" class="span12"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<textarea id="answer" placeholder="Enter Answer..." rows="8" class="span12"></textarea>
+				</div>
+			</div>
+			<div class="form-actions">
+				<a href="#" class="btn btn-success save"><i class="icon icon-ok icon-white"></i> Save Card</a>
+			</div>
+		</fieldset>
+	</form>
+</template>

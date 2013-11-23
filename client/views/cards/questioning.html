@@ -1,0 +1,34 @@
+<template name="cardsQuestioning">
+	{{#with currentCard}}
+		<div class="questioning">
+			<div class="content">
+				<div class="wrapper">
+					<div class="content-question">
+						{{{question}}}
+					</div>
+				</div>
+				<div class="wrapper wrapper-answer">
+					<div class="content-answer">
+						{{{answer}}}
+					</div>
+				</div>
+			</div>
+			<div class="buttons">
+				<div class="buttons-question row-fluid">
+					<a href="#" class="btn btn-default btn-show-answer span12">Reveal Answer</a>
+				</div>
+				<div class="buttons-info row-fluid">
+					<span class="span6">
+						Stash: {{stashName currentCard}} | {{roundEven attemptsCorrectPercent}}% Correct
+					</span>
+					<a href="{{cardsEditPath currentCard}}" class="btn btn-default span3">Edit Card</a>
+					<a href="#" class="btn btn-default span3 delete-card">Delete Card</a>
+				</div>
+				<div class="buttons-answer row-fluid">
+					<a href="#" class="btn btn-success answer-correct btn-answer span6">Answered correctly</a>
+					<a href="#" class="btn btn-danger answer-wrong btn-answer span6">Answered wrongly</a>
+				</div>
+			</div>
+		</div>
+	{{/with}}
+</template>

@@ -1,0 +1,263 @@
+@import "_bootstrap-responsive.scss";
+
+.page-header {
+	clear: both;
+
+	h1 {
+		display: inline-block;
+		float: left;
+	}
+
+	.header-item {
+		float: right;
+		height: 40px;
+		margin-top: 20px;
+		margin-left: 20px;
+
+		a {
+			display: inline;
+		}
+
+		&.first {
+			margin-left: 0;
+		}
+
+		&.left {
+			float: left;
+		}
+	}
+}
+
+// Main title
+.page-header > h1,
+#main > form > fieldset > legend {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+#main > form > fieldset > legend {
+	padding-bottom: 20px;
+}
+
+.box-item {
+	background: url(/img/cards-multiple.jpg);
+	background-size: 100% 100%;
+
+	// The height of the box item depends on its width,
+	// which is set by Bootstrap responsively. A relation
+	// of 1.5 to 1 seems to make sense visually.
+	height: 175px;	// 270 x 175
+	margin-bottom: 30px;
+
+	@media (min-width: 979px) and (max-width: 1200px) {
+		height: 147px; // 220 x 147
+		margin-bottom: 20px;
+	}
+
+	@media (min-width: 768px) and (max-width: 979px) {
+		height: 110px; // 166 x 110
+		margin-bottom: 20px;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	// Since the boxed items aren't wrapped in rows as they
+	// should be, we have added a .row-first class to every
+	// n+1th item so that we can fake the rows by removing
+	// the left hand margin from every row's first item
+	&.row-first {
+		margin-left: 0;
+	}
+
+	display: table;
+
+	a {
+		background-color: rgba(255,255,255, 0.5);
+		color: black;
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+		text-decoration: none;
+
+		// We have to explcitely set the height & width
+		// so that the text can be centered horizontally
+		// & vertically
+		width: 270px; // Same as the parent
+		height: 173px; // Same as the parent
+
+		@media (min-width: 979px) and (max-width: 1200px) {
+			width: 220px; // Same as the parent
+			height: 145px; // Same as the parent
+		}
+
+		@media (min-width: 768px) and (max-width: 979px) {
+			width: 166px; // Same as the parent
+			height: 108px; // Same as the parent
+		}
+
+		@media (max-width: 768px) {
+			display: block;
+			width: 100%;
+			padding-top: 20px;
+			height: 153px;
+		}
+
+		// Special content that appears on hover
+		.visible-default {
+			display: block;
+		}
+
+		.visible-revealed {
+			display: none;
+		}
+
+		&:hover {
+			text-decoration: none;
+			background-color: rgba(255,255,255, 0.75);
+
+			.visible-default {
+				display: none;
+			}
+
+			.visible-revealed {
+				display: block;
+			}
+		}
+	}
+}
+
+.stash-view {
+
+	.header-item {
+
+		.stash-delete,
+		.stash-add-card,
+		.stash-edit,
+		.stash-questioning {
+			display: none;
+		}
+	}
+
+	&.stash-own {
+
+		.stash-import {
+			display: none;
+		}
+		
+		.stash-delete,
+		.stash-add-card,
+		.stash-edit,
+		.stash-questioning {
+			display: inline;
+		}
+	}
+}
+
+.questioning {
+	$separator: 1px solid lighten(black, 75%);
+
+	.content {
+		width: 100%;
+		text-align: center;
+
+		.wrapper {
+			display: table;
+			height: 380px;
+			width: 1170px;
+
+			&.wrapper-answer {
+				height: 0;
+			}
+		}
+
+		.content-question,
+		.content-answer {
+			width: 1170px;
+			height: 380px;
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		.content-question {
+			height: 760px;
+		}
+
+		.content-answer {
+			border-top: $separator;
+			display: none;
+		}
+	}
+
+	.buttons {
+		background: rgba(255,255,255, 0.75);
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-top: $separator;
+		position: fixed;
+		bottom: 0;
+
+		// Manually set the width of the buttons according to the
+		// window size
+		width: 1170px;
+		@media (min-width: 979px) and (max-width: 1200px) {
+			width: 940px;
+		}
+
+		@media (min-width: 768px) and (max-width: 979px) {
+			width: 724px;
+		}
+
+		@media (max-width: 768px) {
+			width: 90%;
+		}
+
+		.buttons-info {
+			text-align: center;
+			line-height: 30px;
+			
+			.btn,
+			span {
+				margin-bottom: 10px;
+			}
+		}
+
+		.buttons-answer,
+		.buttons-info {
+			display: none;
+		}
+	}
+
+	&.is-answer {
+
+		.content {
+
+			.wrapper-answer {
+				height: 380px;
+			}
+
+			.content-question {
+				height: 380px;
+			}
+
+			.content-answer {
+				display: block;
+				display: table-cell;
+			}
+		}
+
+		.buttons {
+
+			.buttons-question {
+				display: none;
+			}
+
+			.buttons-answer,
+			.buttons-info {
+				display: inline;
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+<template name="cardsListItem">
+	<div class="span3 box-item box-item-multiple card">
+		{{#if ownsStash this}}
+			<a href="{{cardsEditPath this}}">
+		{{else}}
+			<a href="{{cardsViewPath this}}">
+		{{/if}}
+			<span class="visible-default">{{stripHtmlAndCut question}}</span>
+			<span class="visible-revealed">{{stripHtmlAndCut answer}}</span>
+		</a>
+	</div>
+</template>
