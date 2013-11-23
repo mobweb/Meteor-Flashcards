@@ -4,7 +4,7 @@ Template.stashesView.helpers({
 	},
 
 	ownsStash: function() {
-		return ownsDocument(Meteor.user()._id, this);
+		return Meteor.user() && ownsDocument(Meteor.user()._id, this);
 	}
 });
 
@@ -123,7 +123,7 @@ Template.stashesView.events({
 		// "My Stashes", otherwise to "All Stashes"
 		//TODO: Is there a way to call Template.stashesView.helpers.ownsStash()
 		// directly instead of duplicating its functionality here?
-		if(ownsDocument(Meteor.user()._id, Stashes.findOne(Session.get('currentStashId')))) {
+		if(Meteor.user() && ownsDocument(Meteor.user()._id, Stashes.findOne(Session.get('currentStashId')))) {
 			Meteor.Router.to('userStashesList');
 		} else {
 			Meteor.Router.to('allStashesList');
