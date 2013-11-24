@@ -87,7 +87,9 @@ Template.stashesView.events({
 			// Copy the data manually
 			var stashCopy = {
 				name: stash.name,
-				userId: user._id
+				userId: user._id,
+				cardsCount: stash.cardsCount,
+				isImported: 1
 			};
 
 			// Insert the copy

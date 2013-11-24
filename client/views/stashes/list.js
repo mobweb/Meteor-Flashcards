@@ -30,9 +30,10 @@ Template.stashesListList.helpers({
 			filter.userId = user._id;
 		} else {
 			// Filter: All but the current user's stashes
-			// with at least one card
+			// with at least one card that are not imported
 			filter.userId = { $ne: user._id };
 			filter.cardsCount = { $gt: 0 };
+			filter.isImported = { $ne: 1 };
 		}
 
 		// Check if any filters have been set via the session
