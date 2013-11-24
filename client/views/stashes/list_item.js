@@ -5,12 +5,4 @@
  *
  */
 Template.stashesListItem.helpers({
-	cardsCount: function() {
-		return Cards.find({stashId: this._id}).fetch().length;
-	},
-
-	author: function() {
-		console.log(this);
-		return;
-	}
 });

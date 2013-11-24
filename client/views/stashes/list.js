@@ -22,7 +22,7 @@ Template.stashesListList.helpers({
 		// The filter will be prepared
 		var filter = {};
 
-		// First check out if we need to show all stashes or just
+		// First check if we need to show all stashes or just
 		// the ones for the current user
 		var user = Meteor.user() || {};
 		if(Session.equals('stashesUserOnly', true)) {
@@ -30,7 +30,9 @@ Template.stashesListList.helpers({
 			filter.userId = user._id;
 		} else {
 			// Filter: All but the current user's stashes
+			// with at least one card
 			filter.userId = { $ne: user._id };
+			filter.cardsCount = { $gt: 0 };
 		}
 
 		// Check if any filters have been set via the session

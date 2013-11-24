@@ -14,7 +14,8 @@ Meteor.methods({
 
 		stash = _.extend(_.pick(data, 'name', 'description'), {
 			userId: user._id,
-			submitted: new Date().getTime()
+			submitted: new Date().getTime(),
+			cardsCount: 0
 		});
 
 		// Create the stash
