@@ -1,5 +1,3 @@
-@import "_bootstrap-responsive.scss";
-
 .page-header {
 	clear: both;
 
@@ -24,6 +22,20 @@
 
 		&.left {
 			float: left;
+		}
+
+		&.expanded-phone {
+
+			@media (max-width: 767px) {
+				margin: 0;
+				width: 100%;
+
+				a,
+				select {
+					display: block;
+					width: 90%;
+				}
+			}
 		}
 	}
 }
@@ -85,22 +97,27 @@
 		// We have to explcitely set the height & width
 		// so that the text can be centered horizontally
 		// & vertically
-		width: 270px; // Same as the parent
 		height: 173px; // Same as the parent
+		width: 250px; // Same as the parent (including the padding)
+		padding: 0 10px;
+		overflow: hidden;
 
 		@media (min-width: 979px) and (max-width: 1200px) {
-			width: 220px; // Same as the parent
 			height: 145px; // Same as the parent
+			width: 200px; // Same as the parent (including the padding)
+			padding: 0 10px;
 		}
 
 		@media (min-width: 768px) and (max-width: 979px) {
-			width: 166px; // Same as the parent
 			height: 108px; // Same as the parent
+			width: 156px; // Same as the parent (including the padding)
+			padding: 0 10px;
 		}
 
 		@media (max-width: 768px) {
 			display: block;
-			width: 100%;
+			display: table-cell;
+			width: 670px;
 			padding-top: 20px;
 			height: 153px;
 		}
@@ -133,25 +150,28 @@
 
 	.header-item {
 
-		.stash-delete,
-		.stash-add-card,
-		.stash-edit,
-		.stash-questioning {
+		&.container-stash-delete,
+		&.container-stash-add-card,
+		&.container-stash-edit,
+		&.container-stash-questioning {
 			display: none;
 		}
 	}
 
 	&.stash-own {
 
-		.stash-import {
-			display: none;
-		}
-		
-		.stash-delete,
-		.stash-add-card,
-		.stash-edit,
-		.stash-questioning {
-			display: inline;
+		.header-item {
+
+			&.container-stash-import {
+				display: none;
+			}
+			
+			&.container-stash-delete,
+			&.container-stash-add-card,
+			&.container-stash-edit,
+			&.container-stash-questioning {
+				display: inline;
+			}
 		}
 	}
 }

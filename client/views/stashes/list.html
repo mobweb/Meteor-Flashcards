@@ -3,7 +3,7 @@
 		{{#if userStashesOnly}}
 			<h1>My Stashes</h1>
 			<span class="clearfix"></span>
-			<div class="header-item">
+			<div class="header-item hidden-phone">
 				<a href="{{stashesAddPath}}" class="btn btn-default">
 					<i class="icon-plus"></i>
 					Add Stash
@@ -13,7 +13,7 @@
 			<h1>All Stashes</h1>
 			<span class="clearfix"></span>
 		{{/if}}
-		<div class="header-item left first">
+		<div class="header-item left first expanded-phone">
 			<form class="form-inline">
 				<select class="sort">
 					<option value="submittedDESC" selected>Sort by: Newest First</option>
@@ -23,7 +23,7 @@
 				</select>
 			</form>
 		</div>
-		<div class="header-item left">
+		<div class="header-item left expanded-phone">
 			<form class="form-search">
 				<div class="input-prepend">
 					<button type="submit" class="btn"><i class="icon-search"></i></button>
@@ -37,6 +37,7 @@
 </template>
 
 <!-- See comment atop Template.stashesListList.helpers about why this template is separated! -->
+<!-- #TODO: Add a "loading" spinner while the stashes are being loaded -->
 <template name="stashesListList">
 	<div class="row-fluid stashes">
 		{{#each stashes}}

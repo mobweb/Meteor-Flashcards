@@ -5,4 +5,12 @@
  *
  */
 Template.stashesListItem.helpers({
+
+	trim: function(length, string) {
+		if(string.length > length) {
+			string = string.substr(0, length) + '...';
+		}
+
+		return string;
+	}
 });
