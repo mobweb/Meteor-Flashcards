@@ -1,3 +1,7 @@
+.clearfix {
+	display: block; // So we can use span clearfixes on IOS<7
+}
+
 .page-header {
 	clear: both;
 
@@ -131,16 +135,21 @@
 			display: none;
 		}
 
-		&:hover {
-			text-decoration: none;
-			background-color: rgba(255,255,255, 0.75);
+		// Only make use of :hover on non-mobile devices.
+		// Otherwise iOS requires a double-tap to follow
+		// these links...
+		@media (min-width: 768px) {
+			&:hover {
+				text-decoration: none;
+				background-color: rgba(255,255,255, 0.75);
 
-			.visible-default {
-				display: none;
-			}
+				.visible-default {
+					display: none;
+				}
 
-			.visible-revealed {
-				display: block;
+				.visible-revealed {
+					display: block;
+				}
 			}
 		}
 	}

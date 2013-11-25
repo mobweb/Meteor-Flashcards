@@ -1,3 +1,6 @@
+.clearfix {
+  display: block; }
+
 .page-header {
   clear: both; }
   .page-header h1 {
@@ -83,13 +86,14 @@
       display: block; }
     .box-item a .visible-revealed {
       display: none; }
-    .box-item a:hover {
-      text-decoration: none;
-      background-color: rgba(255, 255, 255, 0.75); }
-      .box-item a:hover .visible-default {
-        display: none; }
-      .box-item a:hover .visible-revealed {
-        display: block; }
+    @media (min-width: 768px) {
+      .box-item a:hover {
+        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0.75); }
+        .box-item a:hover .visible-default {
+          display: none; }
+        .box-item a:hover .visible-revealed {
+          display: block; } }
 
 .stash-view .header-item.container-stash-delete, .stash-view .header-item.container-stash-add-card, .stash-view .header-item.container-stash-edit, .stash-view .header-item.container-stash-questioning {
   display: none; }
