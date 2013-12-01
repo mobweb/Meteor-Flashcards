@@ -99,11 +99,18 @@ Template.stashesView.events({
 			// them into the newly created stash
 			var cards = Cards.find({stashId: stash._id});
 			cards.forEach(function(card) {
+				// Make sure the attributes of this object
+				// also match the one in cards/add.js
 				var data = {
+					stashId: stashCopyId,
 					question: card.question,
 					answer: card.answer,
-					stashId: stashCopyId,
-					userId: user._id
+					userId: user._id,
+					attempts: 0,
+					attemptsSorted: 0,
+					attemptsCorrect: 0,
+					attemptsCorrectPercent: 0,
+					lastAttempt: 0
 				};
 
 				Cards.insert(data);

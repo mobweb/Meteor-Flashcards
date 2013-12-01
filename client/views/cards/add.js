@@ -58,10 +58,19 @@ Template.cardsAdd.events({
 		question = question.replace(/&nbsp;/g, ' ');
 		answer = answer.replace(/&nbsp;/g, ' ');
 
+		// Set the values for the card
 		var data = {
+			// Note: When modifying these attributes, always also
+			// update the data object in stashes/view.js (the one
+			// used for importing)
 			stashId: stash._id,
 			question: question,
 			answer: answer,
+			attempts: 0,
+			attemptsSorted: 0,
+			attemptsCorrect: 0,
+			attemptsCorrectPercent: 0,
+			lastAttempt: 0
 		};
 
 		// Submit the card on the server
