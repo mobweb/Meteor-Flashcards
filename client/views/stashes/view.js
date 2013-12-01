@@ -86,10 +86,13 @@ Template.stashesView.events({
 
 			// Copy the data manually
 			var stashCopy = {
+				// Make sure the attributes of this object
+				// also match the one in stashes/add.js
 				name: stash.name,
 				userId: user._id,
 				cardsCount: stash.cardsCount,
-				isImported: 1
+				isImported: 1,
+				description: stash.description
 			};
 
 			// Insert the copy

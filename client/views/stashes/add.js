@@ -12,6 +12,9 @@ Template.stashesAdd.events({
 		var name = $(e.target).find('[name=name]');
 		var description = $(e.target).find('[name=description]');
 		var data = {
+			// Note: When modifying these attributes, always also
+			// update the data object in stashes/view.js (the one
+			// used for importing)
 			name: name.val(),
 			description: description.val()
 		};
