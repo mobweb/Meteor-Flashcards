@@ -17,13 +17,22 @@ Template.cardsAdd.helpers({
 	}
 });
 
+// Note: The "rendered" callback gets called every time the client
+// fetches any data that goes into this view, which means it might
+// be called multiple times when the view is loaded
+// Note: The nicEditor implementation in this view is buggy. If the
+// rendered callback gets called multiple times (if the view is refreshed),
+// it won't work! But we can ignore this as it's an edge case
 Template.cardsAdd.rendered = function() {
-	// Create two new editor instances
+	// Create the nicEditor instances for the input fields.
+	// This has to happen every time the page is rendered since the
+	// fields are destroyed and recreated with every page reload
 	var editorConfig = getEditorConfig();
-	window.setTimeout(function() {
-		new nicEditor(editorConfig).panelInstance('question');
-		new nicEditor(editorConfig).panelInstance('answer');
-	}, 50);
+
+	// Save the editor instances in the global scope so they can be removed
+	// and recreated later
+	questionNicEditorInstance = new nicEditor(editorConfig).panelInstance('question');
+	answerNicEditorInstance = new nicEditor(editorConfig).panelInstance('answer');
 };
 
 Template.cardsAdd.events({
@@ -36,6 +45,14 @@ Template.cardsAdd.events({
 		// Gather the data from the form
 		var question = nicEditors.findEditor('question').getContent();
 		var answer = nicEditors.findEditor('answer').getContent();
+
+		// Destroy the nicEditor instances for both fields since these
+		// fields will be destroyed and the page will be re-rendered
+		// using two new fields. If we don't destroy these instances,
+		// nicEditor will be confused and unable to create the panels
+		// for the new fields
+		questionNicEditorInstance.removeInstance('question');
+		answerNicEditorInstance.removeInstance('answer');
 
 		// Filter some stuff from the question & answer manually
 		question = question.replace(/&nbsp;/g, ' ');
